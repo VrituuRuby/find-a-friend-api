@@ -1,6 +1,6 @@
 ### Requisitos Funcionais da Aplicação
 
-- [] Deve ser possível cadastrar um pet
+- [X] Deve ser possível cadastrar um pet
 - [] Deve ser possível remover um pet
 - [] Deve ser possível editar um pet
 - [] Deve ser possível listar todos os pets disponíveis para adoção em uma cidade
@@ -11,6 +11,7 @@
 
 ### Regras de negócio
 
+- [X] Para cadastrar uma Organização precisa validar a existência da cidade e estado
 - [] Para listar os pets, obrigatoriamente precisamos informar a cidade
 - [] Uma ORG precisa ter um endereço e um número de WhatsApp
 - [] A Organização não pode cadastrar com email duplicado
@@ -25,3 +26,14 @@
  - [] Lista de Pets devem ser paginados em números de 20 items por página
  - [] Organizações devem ser identificadas por JWT
  
+
+### Update dia 19/10
+- Entre hoje e ontem eu fiz algumas alterações no prisma para acesso ao banco de dados PostgreSQL que atualmente roda via Docker com uma imagem da bitnami.
+- Serviços: Criei dois services
+    - RegisterPet: Serviço responsável pela criação de um pet
+    - ValidateCity: Serviço responsável pela validação dos nomes das UF (Unidades Federativas) e cidades, pois mais pra frente será a mesma utilizada como filtro para procura de pets!
+
+- Repository Pattern: na pasta repositories ficarão as interfaces e repositórios da aplicação. O Repository Pattern consiste em adicionar uma camada intermediaria entre a lógica das regras de negócio e o acesso e manipulação do banco de dados. Utilizo esse pattern pois ele isola a lógica do acesso ao banco de dados o que facilita a realização dos testes unitários.
+
+- Criado Testes Unitários
+

@@ -5,7 +5,9 @@
   "main": "server.ts",
   "scripts": {
     "start:dev": "tsx watch src/server.ts",
-    "build": "tsup src/server.ts"
+    "build": "tsup src/server.ts",
+    "test:watch": "vitest src/services",
+    "test": "vitest run src/services"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +26,7 @@
   },
   "dependencies": {
     "@prisma/client": "5.4.2",
+    "axios": "1.5.1",
     "dotenv": "16.3.1",
     "fastify": "4.24.2",
     "zod": "3.22.4"

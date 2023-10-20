@@ -45,18 +45,18 @@ model Pet {
   name               String
   type               TYPE
   description        String
-  age                Int
+  age                AGE
   activity_level     ACTIVITY_LEVEL
   independency_level INDEPENDENCY_LEVEL
   size               SIZE
-  requirements       String[]
-  organization       organization       @relation(fields: [organizationId], references: [id])
+  requirements       String[]           @default([])
+  organization       Organization       @relation(fields: [organizationId], references: [id])
   organizationId     String
 
   @@map("pets")
 }
 
-model organization {
+model Organization {
   id                  String @id @default(uuid())
   representative_name String
   email               String
