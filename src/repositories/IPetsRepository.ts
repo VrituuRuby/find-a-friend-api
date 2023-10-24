@@ -9,15 +9,30 @@ export type TYPE = 'DOG' | 'CAT'
 export interface CreatePetDTO {
   name: string
   description: string
-  activity_level: ACTIVITY_LEVEL
   organizationId: string
+  requirements?: string[]
+  type: TYPE
   age: AGE
+  activity_level: ACTIVITY_LEVEL
   independency_level: INDEPENDENCY_LEVEL
   size: SIZE
-  type: TYPE
-  requirements?: string[]
+}
+
+export interface FindManyByCityOnUFParams {
+  uf: string
+  city: string
+  type?: TYPE
+  age?: AGE
+  activity_level?: ACTIVITY_LEVEL
+  independency_level?: INDEPENDENCY_LEVEL
+  size?: SIZE
+  page: number
 }
 
 export interface IPetsRepository {
   create(data: CreatePetDTO): Promise<Pet>
+  findManyByCityOnUF(data: FindManyByCityOnUFParams): Promise<Pet[]>
+  findById(pet_id: string): Promise<Pet | null>
+  deleteById(pet_id: string): Promise<void>
+  save(pet: Pet): Promise<Pet>
 }

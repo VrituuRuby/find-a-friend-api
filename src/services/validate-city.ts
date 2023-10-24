@@ -1,4 +1,5 @@
 import { ibge_api } from '../libs/axios'
+import { InvalidCityError } from './errors/invalid-city-error'
 
 interface ValidateCityServiceParams {
   UF: string
@@ -49,7 +50,7 @@ export class ValidateCityService {
     city,
   }: ValidateCityServiceParams): Promise<ValidateCityServiceResponse> {
     if (!brazilianStates.includes(UF)) {
-      throw new Error('Invalid UF State')
+      throw new InvalidCityError()
     }
 
     const URL = `/localidades/estados/${UF}/distritos`
@@ -59,7 +60,7 @@ export class ValidateCityService {
     const citiesNames = cities.map((city) => city.nome)
 
     if (!citiesNames.includes(city)) {
-      throw new Error('Invalid city name')
+      throw new InvalidCityError()
     }
 
     return {

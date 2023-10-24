@@ -59,7 +59,7 @@ model Pet {
 model Organization {
   id                  String @id @default(uuid())
   representative_name String
-  email               String
+  email               String @unique
   password_hash       String
   cep                 String
   address             String
