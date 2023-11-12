@@ -39,3 +39,58 @@
 
 - Criado Testes Unitários
 
+😎 Realizando um Desafio Novo - Find A Friend API 🚀
+
+Olá, pessoal! Estou vindo aqui compartilhar que estou prestes a iniciar um novo projeto de desafio como parte do curso Ignite da Rocketseat. Neste projeto, vou criar uma API REST Node de adoções de animais do zero e decidi que vou documentar todo o processo aqui no LinkedIn.
+
+Iniciando pelo backend, o projeto consiste na construção de uma plataforma onde organizações podem se cadastrar e cadastrar pets para que outros possam entrar em contato e adotá-los. Para stack do backend eu escolhi:
+
+- Fastify: Framework node HTTP
+- TypeScript;
+- Eslint;
+- Prisma.io;
+- PostgreSQL ;
+- Vitest;
+
+Qualquer adição de bibliotecas serão informadas durante criação do projeto.
+
+Hoje, já dei início configurando o projeto com TypeScript, ESLint e fiz a modelagem do banco de dados com relações no Prisma. Além disso, criei o README que contém as regras e requisitos da aplicação.
+
+Vou tentar manter posts regulares sobre o projeto, compartilhando os desafios que enfrento e as soluções que encontro ao longo do desenvolvimento. Qualquer feedback é bem-vindo! 🤙
+
+Repositório Git: https://lnkd.in/e4C_jPhf
+
+### 24/10
+- Finalizado todos os Services junto com testes unitários!
+- Authenticate: Autenticação para organizações que cadastram os pets, utiliza email e senha, essa senha é verificada com o hash no banco de dados utilizando o bcrypt
+
+- Delete Pet: Remove um pet do sistema baseado no IP
+
+- Fetch Pets for Adoption: Necessita informar uma UF e uma Cidade, busca todos os pets da área selecionada com paginação de 20 em 20. E tem filtros que usuário pode selecionar como: Idade, Nivel de Atividade, Nivel de Independencia, Tamanho e tipo (Gato ou Cachorro).
+
+- Get Pet: Retorna os dados específicos de um pet, requisitos, localização, etc...
+
+- Register Organization: Cadastro de organizações, cadastra-se com os seguintes dados:
+    - Cidade e UF
+    - Endereço
+    - Número do Endereço
+    - CEP 
+    - Telefone Whatsapp
+    - E-mail
+    - Senha
+    - Nome Representante
+
+- Register Pet: Cadastro de Pets para adoção, utilizamos os seguintes dados:
+    - Nome
+    - Descrição
+    - Tipo (Cachorro ou Gato)
+    - Idade (Filhote, Adulto ou Idoso)
+    - Tamanho (Pequeno, Médio, Grande ou Gigante)
+    - Nível de Atividade (Baixo, Médio ou Alto)
+    - Nível de Independencia (Baixo, Médio ou Alto)
+    - Requisitos - Uma lista de informações extras sobre o pet.
+
+- Update Pet: Atualiza algum dado ou informação de um pet.
+
+- Validate City: Procura em uma API externa a existência e validação do nome de UFs e cidades
+
