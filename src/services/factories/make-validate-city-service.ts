@@ -1,6 +1,6 @@
 import { ValidateCityService } from '../validate-city'
 
-export function makeRegisterPetService() {
+export function makeValidateCityService() {
   const service = new ValidateCityService()
 
   return service
