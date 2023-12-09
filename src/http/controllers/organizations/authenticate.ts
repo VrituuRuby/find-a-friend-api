@@ -23,14 +23,7 @@ export async function authenticateOrganizationHandler(
       password,
     })
 
-    const token = await reply.jwtSign(
-      {},
-      {
-        sign: {
-          sub: organization.id,
-        },
-      },
-    )
+    const token = await reply.jwtSign({}, { sign: { sub: organization.id } })
 
     return reply.status(202).send({ token })
   } catch (error) {

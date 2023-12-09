@@ -38,7 +38,6 @@ export class RegisterPetService {
     const organization = await this.organizationsRepository.findById(
       data.organizationId,
     )
-    console.log(organization)
 
     if (!organization) throw new ResourceNotFoundError()
 

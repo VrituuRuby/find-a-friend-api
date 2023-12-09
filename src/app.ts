@@ -17,6 +17,7 @@ app.register(fastifyJwt, {
     expiresIn: '1d',
   },
 })
+
 app.register(multer.contentParser)
 
 app.get('/', helloWorld)

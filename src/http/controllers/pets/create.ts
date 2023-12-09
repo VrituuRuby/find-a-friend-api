@@ -10,7 +10,6 @@ export async function createPetHandler(
   const registerPetBodySchema = z.object({
     name: z.string(),
     description: z.string(),
-    organizationId: z.string(), // TODO: change to get organization ID from authentication token
     type: z.enum(['CAT', 'DOG']),
     age: z.enum(['YOUNG', 'ADULT', 'SENIOR']),
     size: z.enum(['SMALL', 'MEDIUM', 'LARGE', 'GIANT']),
@@ -22,9 +21,12 @@ export async function createPetHandler(
   const data = registerPetBodySchema.parse(request.body)
 
   const registerPetService = makeRegisterPetService()
-
   try {
-    const { pet } = await registerPetService.execute(data)
+    const organizationId = request.user.sub
+    const { pet } = await registerPetService.execute({
+      ...data,
+      organizationId,
+    })
     return reply.status(201).send({ pet })
   } catch (error) {
     if (error instanceof ResourceNotFoundError) {
