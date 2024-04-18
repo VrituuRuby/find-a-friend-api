@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { makeRegisterOrganizationService } from '../../../services/factories/make-register-organization-service'
 import { DuplicateEmailError } from '../../../services/errors/duplicate-email-error'
 import { InvalidCityError } from '../../../services/errors/invalid-city-error'
+import { makeValidateCityService } from '../../../services/factories/make-validate-city-service'
 
 export async function createOrganizationHandler(
   request: FastifyRequest,
@@ -36,10 +37,10 @@ export async function createOrganizationHandler(
   const registerOrganizationService = makeRegisterOrganizationService()
 
   // API da IBGE Não está funcionando mais
-  // const validateCityService = makeValidateCityService()
+  const validateCityService = makeValidateCityService()
 
   try {
-    // await validateCityService.execute({ UF: uf, city })
+    await validateCityService.execute({ UF: uf, city })
 
     const { organization } = await registerOrganizationService.execute({
       address,

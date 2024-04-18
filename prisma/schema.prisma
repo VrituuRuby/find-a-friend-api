@@ -49,6 +49,7 @@ model Pet {
   activity_level     ACTIVITY_LEVEL
   independency_level INDEPENDENCY_LEVEL
   size               SIZE
+  images             String[]
   requirements       String[]           @default([])
   organization       Organization       @relation(fields: [organizationId], references: [id])
   organizationId     String

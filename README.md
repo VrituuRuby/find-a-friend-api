@@ -24,9 +24,9 @@
 
 ### Regras Não Funcionais
  - [X] Senha da organização deve ser criptografada ao armazenar
- - [] Dados devem ser persistidos em bando de dados PostgreSQL
+ - [X] Dados devem ser persistidos em bando de dados PostgreSQL
  - [] Lista de Pets devem ser paginados em números de 20 items por página
- - [] Organizações devem ser identificadas por JWT
+ - [X] Organizações devem ser identificadas por JWT
  
 
 ### Update dia 19/10
@@ -64,7 +64,7 @@ Repositório Git: https://lnkd.in/e4C_jPhf
 - Finalizado todos os Services junto com testes unitários!
 - Authenticate: Autenticação para organizações que cadastram os pets, utiliza email e senha, essa senha é verificada com o hash no banco de dados utilizando o bcrypt
 
-- Delete Pet: Remove um pet do sistema baseado no IP
+- Delete Pet: Remove um pet do sistema baseado no ID
 
 - Fetch Pets for Adoption: Necessita informar uma UF e uma Cidade, busca todos os pets da área selecionada com paginação de 20 em 20. E tem filtros que usuário pode selecionar como: Idade, Nivel de Atividade, Nivel de Independencia, Tamanho e tipo (Gato ou Cachorro).
 
@@ -87,7 +87,7 @@ Repositório Git: https://lnkd.in/e4C_jPhf
     - Idade (Filhote, Adulto ou Idoso)
     - Tamanho (Pequeno, Médio, Grande ou Gigante)
     - Nível de Atividade (Baixo, Médio ou Alto)
-    - Nível de Independencia (Baixo, Médio ou Alto)
+    - Nível de Independência (Baixo, Médio ou Alto)
     - Requisitos - Uma lista de informações extras sobre o pet.
 
 - Update Pet: Atualiza algum dado ou informação de um pet.

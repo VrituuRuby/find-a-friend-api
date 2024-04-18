@@ -20,6 +20,7 @@ interface RegisterPetServiceParams {
   activity_level: ACTIVITY_LEVEL
   independency_level: INDEPENDENCY_LEVEL
   requirements?: string[]
+  images: string[]
 }
 
 interface RegisterPetServiceResponse {
@@ -30,7 +31,7 @@ export class RegisterPetService {
   constructor(
     private petsRepository: IPetsRepository,
     private organizationsRepository: IOrganizationsRepository,
-  ) {}
+  ) { }
 
   async execute(
     data: RegisterPetServiceParams,

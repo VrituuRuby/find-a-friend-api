@@ -1,6 +1,6 @@
 import Fastify from 'fastify'
 import fastifyJwt from '@fastify/jwt'
-import multer from 'fastify-multer'
+import fastifyMultipart from '@fastify/multipart'
 import { ZodError } from 'zod'
 
 import env from './env'
@@ -17,8 +17,7 @@ app.register(fastifyJwt, {
     expiresIn: '1d',
   },
 })
-
-app.register(multer.contentParser)
+app.register(fastifyMultipart)
 
 app.get('/', helloWorld)
 app.register(PetsRoutes)
@@ -28,7 +27,7 @@ app.setErrorHandler((error, request, reply) => {
   if (error instanceof ZodError) {
     return reply
       .status(400)
-      .send({ message: 'Validation Error', issues: error.format() })
+      .send({ message: 'Validation Error', issues: error })
   }
 
   if (env.NODE_ENV !== 'prod') {
